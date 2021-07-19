@@ -22,7 +22,7 @@ namespace DiceRoller
         {
             Random r = new Random();
 
-            byte DieValue = (byte)r.Next(1, 6);
+            byte DieValue = (byte)r.Next(1, 7);
 
             return DieValue;
         }
