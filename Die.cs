@@ -14,17 +14,24 @@ namespace DiceRoller
         /// <summary>
         /// face value of die.
         /// </summary>
+        /// 
+        Random r;
+        public Die()
+        {
+            // Roll die on creation to generate first random number.
+            r = new Random();
+            RollDie();
+        }
         public byte FaceValue { get; private set; }
 
         public bool IsHeld { get; set; }
 
         public byte RollDie()
         {
-            Random r = new Random();
+            int DieValue = r.Next(1, 7);
+            FaceValue = (byte)DieValue;
 
-            byte DieValue = (byte)r.Next(1, 7);
-
-            return DieValue;
+            return FaceValue;
         }
     }
 }
