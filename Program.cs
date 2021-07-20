@@ -12,7 +12,7 @@ namespace DiceRoller
         static void Main(string[] args)
         {
 
-            Console.WriteLine("This program will simulate a dice game similar to Yahtzee.");
+            Console.WriteLine("This program will simulate the beginning of a dice game similar to Yahtzee.");
             Console.WriteLine("Enter any key to roll the dice or press q to quit.");
 
                 while (true)
