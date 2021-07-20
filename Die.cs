@@ -17,15 +17,24 @@ namespace DiceRoller
         /// 
         // static fields are shared across all instances of a class.
         static Random r;
+        byte minValue;
+        byte maxValue;
 
         static Die() // static, so called only once for all instances of the class.
         {
             r = new Random();
         }
-        public Die()
+        public Die():this(1, 7)
         {
-                // Roll die on creation to generate first random number.
-                RollDie();
+            // Roll die on creation to generate first random number.
+        }
+
+        public Die(byte minValue, byte maxValue)
+        {
+            // Create die with numbers between 1 and 6, inclusive lower bound.
+            this.minValue = minValue;
+            this.maxValue = maxValue;
+            RollDie();
         }
         public byte FaceValue { get; private set; }
 
@@ -40,9 +49,10 @@ namespace DiceRoller
 
         public byte RollDie()
         {
+            const int offset = 1;
             if (!IsHeld) // Die is not held.
             {
-                int DieValue = r.Next(1, 7);
+                int DieValue = r.Next(minValue, maxValue + offset);
                 FaceValue = (byte)DieValue;
             }
 
