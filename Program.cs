@@ -11,22 +11,30 @@ namespace DiceRoller
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("This program will simulate a dice game similar to Yahtzee.");
-            Console.WriteLine("Enter r to roll the dice.");
-            Console.ReadKey();
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("Enter any key to roll the dice or press q to quit.");
 
-            Die[] diceHand = new Die[5];
-            for (int i = 0; i < diceHand.Length; i++)
-            {
-                diceHand[i] = new Die();
-                Console.Write(diceHand[i].FaceValue + " ");
-                Thread.Sleep(1);
+                while (true)
+                {
+                    char input = char.Parse(Console.ReadKey().KeyChar.ToString());
+                
+                if (input == 'q')
+                {
+                    break;
+                }
+                    Console.WriteLine();
+                    Console.WriteLine();
+
+                    Die[] diceHand = new Die[5];
+                    for (int i = 0; i < diceHand.Length; i++)
+                    {
+                        diceHand[i] = new Die();
+                        Console.Write(diceHand[i].FaceValue + " ");
+                        Thread.Sleep(1);
+                    }
+                    Console.WriteLine();
+                }
             }
-            
-
-            Console.ReadKey();
         }
     }
-}
