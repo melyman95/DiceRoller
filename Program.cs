@@ -21,7 +21,7 @@ namespace DiceRoller
             for (int i = 0; i < diceHand.Length; i++)
             {
                 diceHand[i] = new Die();
-                Console.WriteLine(diceHand[i].FaceValue + " ");
+                Console.Write(diceHand[i].FaceValue + " ");
                 Thread.Sleep(1);
             }
             

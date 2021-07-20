@@ -15,12 +15,24 @@ namespace DiceRoller
         /// face value of die.
         /// </summary>
         /// 
-        Random r;
+        // static fields are shared across all instances of a class.
+        static Random r;
+
+        static Die() // static, so called only once for all instances of the class.
+        {
+            r = new Random();
+        }
         public Die()
         {
-            // Roll die on creation to generate first random number.
-            r = new Random();
-            RollDie();
+            if (r == null)
+            {
+                r = new Random();
+            }
+            else
+            {
+                // Roll die on creation to generate first random number.
+                RollDie();
+            }
         }
         public byte FaceValue { get; private set; }
 
